@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Collections;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -47,7 +48,8 @@ public class TelaP extends JFrame {
 				try {
 					TelaP frame = new TelaP();
 					frame.setVisible(true);
-					frame.setLocation(400,200);
+					frame.setResizable(false);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -72,17 +74,19 @@ public class TelaP extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					((DefaultTableModel)table.getModel()).removeRow(table.getSelectedRow());
-					Adicionar.tabela.remove(table.getModel().getRowCount());		
-					
+					Adicionar.tabela.remove(table.getModel().getRowCount());
 					TelaP exibir = new TelaP();
+					exibir.setResizable(false);
 					exibir.setVisible(true);
-					exibir.setLocation(400,200);
+					exibir.setLocationRelativeTo(null);
+
 					dispose();
 				}
 				catch(Exception c) {
 					ID exibir = new ID();
 					exibir.setVisible(true);
-					exibir.setLocation(500,400);
+					exibir.setResizable(false);
+					exibir.setLocationRelativeTo(null);
 					dispose();
 				}
 			}
@@ -171,7 +175,8 @@ public class TelaP extends JFrame {
 									tabela.Adicionar.setLb("Ùnica Queda");
 									Dados exibir = new Dados();
 									exibir.setVisible(true);
-									exibir.setLocation(450,300);
+									exibir.setResizable(false);
+									exibir.setLocationRelativeTo(null);
 									dispose();
 								}
 								else if(quedas==2) {
@@ -179,11 +184,13 @@ public class TelaP extends JFrame {
 									tabela.Adicionar.setLb("Segunda Queda");
 									Dados exibir = new Dados();
 									exibir.setVisible(true);
-									exibir.setLocation(450,300);
+									exibir.setLocationRelativeTo(null);
+									exibir.setResizable(false);
 									
 									Dados2 exibir2 = new Dados2();
 									exibir2.setVisible(true);
-									exibir2.setLocation(450,300);
+									exibir2.setLocationRelativeTo(null);
+									exibir2.setResizable(false);
 									dispose();
 								}
 								else {
@@ -192,15 +199,18 @@ public class TelaP extends JFrame {
 									tabela.Adicionar.setLb("Terceira Queda");
 									Dados exibir = new Dados();
 									exibir.setVisible(true);
-									exibir.setLocation(450,300);
+									exibir.setResizable(false);
+									exibir.setLocationRelativeTo(null);
 									
 									Dados2 exibir2 = new Dados2();
 									exibir2.setVisible(true);
-									exibir2.setLocation(450,300);
+									exibir2.setLocationRelativeTo(null);
+									exibir2.setResizable(false);
 									
 									Dados3 exibir3 = new Dados3();
 									exibir3.setVisible(true);
-									exibir3.setLocation(450,300);
+									exibir3.setLocationRelativeTo(null);
+									exibir3.setResizable(false);
 									dispose();
 								}	
 							}
@@ -235,7 +245,8 @@ public class TelaP extends JFrame {
 				try {
 					TabelaGerada exibir = new TabelaGerada();
 					exibir.setVisible(true);
-					exibir.setLocation(400,200);
+					exibir.setResizable(false);
+					exibir.setLocationRelativeTo(null);
 				}
 				catch(Exception c) {
 					

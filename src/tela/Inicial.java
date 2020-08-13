@@ -36,7 +36,8 @@ public class Inicial extends JFrame {
 				try {
 					Inicial frame = new Inicial();
 					frame.setVisible(true);
-					frame.setLocation(400,200);
+					frame.setLocationRelativeTo(null);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -80,7 +81,8 @@ public class Inicial extends JFrame {
 									tabela.Adicionar.setNumber(valor2);
 									TelaP exibir = new TelaP();
 									exibir.setVisible(true);
-									exibir.setLocation(400,200);
+									exibir.setLocationRelativeTo(null);
+									exibir.setResizable(false);
 									dispose();
 								}
 								else {

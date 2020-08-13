@@ -8,6 +8,7 @@ public class Tabela implements Comparable<Tabela> {
 	private int total=0;
 	private int Index=0;
 	private String setar;
+	private int Posicao;
 	
 	public Tabela() {
 		
@@ -15,6 +16,7 @@ public class Tabela implements Comparable<Tabela> {
 	public Tabela(int id,String nome,int quedas,int abates,int total) {
 		this.ID=id;
 		this.Time=nome;
+		//this.Posicao = posicao;
 		this.Quedas=quedas;
 		this.Abates=abates;
 		this.total=total;
@@ -69,6 +71,12 @@ public class Tabela implements Comparable<Tabela> {
 	public int compareTo(Tabela o) {
 		
 		return (o.getTotal()-this.total);
+	}
+	public int getPosicao() {
+		return Posicao;
+	}
+	public void setPosicao(int posicao) {
+		Posicao = posicao;
 	}
 	
 }

@@ -22,7 +22,8 @@ public class Adicionar {
 		att.add(Adiconar);	
 	}
 	
-		
+	
+	
 	public static void Add(Tabela Adicionar){
 		tabela.add(Adicionar);	
 	}

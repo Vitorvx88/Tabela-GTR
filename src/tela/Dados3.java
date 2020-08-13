@@ -35,7 +35,8 @@ public class Dados3 extends JFrame {
 				try {
 					Dados3 frame2 = new Dados3();
 					frame2.setVisible(true);
-					frame2.setLocation(400,350);
+					frame2.setLocationRelativeTo(null);
+					frame2.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -87,9 +88,14 @@ public class Dados3 extends JFrame {
 						int abates=(Integer.parseInt(valor1));
 						int quedas=(Integer.parseInt(valor2));
 						if((abates >0) && (quedas >0)) {
-							ad.setAbates(abates);
-							ad.setQueda2(quedas);
-							dispose();
+							if(quedas<13) {
+								ad.setAbates(abates);
+								ad.setQueda2(quedas);
+								dispose();
+							}
+							else
+								JOptionPane.showMessageDialog(null, "A posição não pode ser mair que 12!");
+								textPosicao.setText("");
 						}
 						else
 							JOptionPane.showMessageDialog(null,"Não podem ter números negativos");

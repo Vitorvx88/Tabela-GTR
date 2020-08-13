@@ -1,13 +1,10 @@
 package tela;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-
 import tabela.Adicionar;
 import tabela.AttLista;
 import tabela.Tabela;
@@ -20,7 +17,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ID extends JFrame {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textID;
 
@@ -33,6 +33,8 @@ public class ID extends JFrame {
 				try {
 					ID frame = new ID();
 					frame.setVisible(true);
+					frame.setResizable(false);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,7 +48,8 @@ public class ID extends JFrame {
 	public ID() {
 		TelaP exibir1 = new TelaP();
 		exibir1.setVisible(true);
-		exibir1.setLocation(400,200);
+		exibir1.setLocationRelativeTo(null);
+		exibir1.setResizable(false);
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 321, 161);
@@ -100,7 +103,8 @@ public class ID extends JFrame {
 								exibir1.setVisible(false);
 								TelaP exibir = new TelaP();
 								exibir.setVisible(true);
-								exibir.setLocation(400,200);
+								exibir.setResizable(false);
+								exibir.setLocationRelativeTo(null);
 								dispose();	
 								
 							}

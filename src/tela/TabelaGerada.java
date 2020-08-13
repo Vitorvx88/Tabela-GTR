@@ -34,6 +34,8 @@ public class TabelaGerada extends JFrame {
 				try {
 					TabelaGerada frame = new TabelaGerada();
 					frame.setVisible(true);
+					frame.setResizable(false);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -101,7 +103,8 @@ public class TabelaGerada extends JFrame {
 				
 				TelaP exibir = new TelaP();
 				exibir.setVisible(true);
-				exibir.setLocation(400,200);
+				exibir.setLocationRelativeTo(null);
+				exibir.setResizable(false);
 				dispose();
 				exibir.setVisible(false);
 				dispose();

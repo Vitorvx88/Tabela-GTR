@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
@@ -42,7 +43,8 @@ public class Dados extends JFrame {
 				try {
 					Dados frame2 = new Dados();
 					frame2.setVisible(true);
-					frame2.setLocation(400,350);
+					frame2.setLocationRelativeTo(null);
+					frame2.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,7 +60,8 @@ public class Dados extends JFrame {
 		
 		TelaP exibir1 = new TelaP();
 		exibir1.setVisible(true);
-		exibir1.setLocation(400,200);
+		exibir1.setLocationRelativeTo(null);
+		exibir1.setResizable(false);
 		
 		setTitle("Informa\u00E7\u00F5es");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -91,30 +94,38 @@ public class Dados extends JFrame {
 							int quedas=(Integer.parseInt(textPs.getText()));
 							int absa =Integer.parseInt(textAb.getText());
 							if((abates >0) && (quedas >0)) {
-								abates = (abates + ad.getAbates())*2;
-								absa = (absa + ad.getAbates());
-								total = total + tabela.Adicionar.Posicao(ad.getQueda1())+tabela.Adicionar.Posicao(ad.getQueda2())+tabela.Adicionar.Posicao(quedas);
-								total = total + abates;
-								Tabela a1 = new Tabela(tabela.Adicionar.tabela.size(),ad.getSetar(),ad.getIndex(),absa,total);
-								Adicionar.Add(a1);
-								JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
-								ad.setAbates2(0);
-								ad.setQueda1(0);
-								ad.setQueda2(0);
-								
-								TelaP exibir = new TelaP();
-								exibir.setVisible(true);
-								exibir.setLocation(400,200);
-								dispose();
-								exibir1.setVisible(false);
-								dispose();
+								if(quedas <13) {
+									abates = (abates + ad.getAbates())*2;
+									absa = (absa + ad.getAbates());
+									total = total + tabela.Adicionar.Posicao(ad.getQueda1())+tabela.Adicionar.Posicao(ad.getQueda2())+tabela.Adicionar.Posicao(quedas);
+									total = total + abates;
+									Tabela a1 = new Tabela(tabela.Adicionar.tabela.size(),ad.getSetar(),ad.getIndex(),absa,total);
+									Adicionar.Add(a1);
+									JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+									ad.setAbates2(0);
+									ad.setQueda1(0);
+									ad.setQueda2(0);
+									
+									TelaP exibir = new TelaP();
+									exibir.setVisible(true);
+									exibir.setLocationRelativeTo(null);
+									exibir.setResizable(false);
+									dispose();
+									exibir1.setVisible(false);
+									dispose();
+								}
+								else
+									JOptionPane.showMessageDialog(null, "A posição não pode ser mair que 12!");
+									textPs.setText("");
 							}
 							else
 								JOptionPane.showMessageDialog(null, "Não podem ter números negativos");
+	
 						}
 						else 
 							JOptionPane.showMessageDialog(null, "Só pode haver números e não podem ser negativos!");
-					}
+
+					}	
 				}
 				catch(Exception c){					
 				}
@@ -133,7 +144,8 @@ public class Dados extends JFrame {
 				dispose();
 				TelaP exibir = new TelaP();
 				exibir.setVisible(true);
-				exibir.setLocation(400,200);
+				exibir.setLocationRelativeTo(null);
+				exibir.setResizable(false);
 				dispose();
 				exibir1.setVisible(false);
 			}
