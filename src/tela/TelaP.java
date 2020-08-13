@@ -34,7 +34,6 @@ public class TelaP extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private Adicionar ad = new Adicionar();
 	private JPanel contentPane;
-	private JTextField textID;
 	private JTextField textTag;
 	public String nul="";
 	private JTable table;
@@ -68,66 +67,28 @@ public class TelaP extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		dispose();
-		JButton ApagarID = new JButton("Apagar");
+		JButton ApagarID = new JButton("Remover");
 		ApagarID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					((DefaultTableModel)table.getModel()).removeRow(table.getSelectedRow());
-					Adicionar.tabela.remove(table.getModel().getRowCount());
-		
+					Adicionar.tabela.remove(table.getModel().getRowCount());		
 					
-					/*String IDaux=textID.getText();
-					boolean Number=tabela.Adicionar.soConterNumeros(IDaux);
-					if(IDaux.equals("")) {
-						JOptionPane.showMessageDialog(null, "O campo ID não pode estar em branco!");
-					}
-					else {
-						if(Number) {
-							int ID = Integer.parseInt(IDaux);
-							boolean VerficID=tabela.Adicionar.buscar(ID);
-							if(VerficID) {
-								Adicionar.tabela.remove(ID);
-			
-								for(int i=0; i<Adicionar.tabela.size(); i++) {
-									AttLista a1 = new AttLista (Adicionar.att.size()-1,Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getQuedas(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal());
-									Adicionar.AddTb(a1);
-								}
-								Adicionar.tabela.removeAll(Adicionar.tabela);
-								
-								for(int i=0; i< Adicionar.att.size(); i++) {
-									Tabela a1 = new Tabela(Adicionar.tabela.size(),Adicionar.att.get(i).getTime(),Adicionar.att.get(i).getQuedas(),Adicionar.att.get(i).getAbates(),Adicionar.att.get(i).getTotal());
-									Adicionar.Add(a1);
-								}
-								Adicionar.att.removeAll(Adicionar.att);
-								
-								JOptionPane.showMessageDialog(null, "ID removido!");
-								dispose();
-								TelaP exibir = new TelaP();
-								exibir.setVisible(true);
-								exibir.setLocation(400,200);
-								
-							}
-							else
-								JOptionPane.showMessageDialog(null, "Esse ID não existe!");
-								textID.setText("");
-						}
-						else
-							JOptionPane.showMessageDialog(null, "Digite o numero de ID corretamente!");
-							textID.setText("");
-					}*/
+					TelaP exibir = new TelaP();
+					exibir.setVisible(true);
+					exibir.setLocation(400,200);
+					dispose();
 				}
 				catch(Exception c) {
-					JOptionPane.showMessageDialog(null, "Esse ID não existe!");
+					ID exibir = new ID();
+					exibir.setVisible(true);
+					exibir.setLocation(500,400);
+					dispose();
 				}
 			}
 		});dispose();
-		ApagarID.setBounds(20, 208, 77, 31);
+		ApagarID.setBounds(21, 195, 87, 31);
 		contentPane.add(ApagarID);
-		
-		textID = new JTextField();
-		textID.setColumns(10);
-		textID.setBounds(101, 219, 26, 20);
-		contentPane.add(textID);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(21, 11, 441, 173);
@@ -170,14 +131,14 @@ public class TelaP extends JFrame {
 		
 		textTag = new JTextField();
 		textTag.setColumns(10);
-		textTag.setBounds(211, 219, 87, 20);
+		textTag.setBounds(182, 219, 142, 20);
 		contentPane.add(textTag);
 		
 		JLabel lblNewLabel_2 = new JLabel("TAG do Time");
-		lblNewLabel_2.setBounds(211, 202, 87, 14);
+		lblNewLabel_2.setBounds(208, 202, 87, 14);
 		contentPane.add(lblNewLabel_2);
 		
-		JButton Adicionar = new JButton("COME\u00C7AR");
+		JButton Adicionar = new JButton("CADASTRAR");
 		Adicionar.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent evt) {
@@ -265,7 +226,7 @@ public class TelaP extends JFrame {
 				System.exit(0);
 			}
 		});
-		Sair.setBounds(20, 250, 77, 37);
+		Sair.setBounds(20, 250, 87, 37);
 		contentPane.add(Sair);
 		
 		JButton GerarTabela = new JButton("GerarTabela");
@@ -283,10 +244,6 @@ public class TelaP extends JFrame {
 		});
 		GerarTabela.setBounds(368, 202, 109, 54);
 		contentPane.add(GerarTabela);
-		
-		JLabel lblNewLabel = new JLabel("ID");
-		lblNewLabel.setBounds(107, 202, 20, 14);
-		contentPane.add(lblNewLabel);
 		
 		JLabel lblQUEDASSSS = new JLabel("");
 		lblQUEDASSSS.setFont(new Font("Tahoma", Font.PLAIN, 16));
