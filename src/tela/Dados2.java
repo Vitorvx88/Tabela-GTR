@@ -1,13 +1,11 @@
 package tela;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import tabela.Adicionar;
-import tabela.Vetores;
+import Repositorio.Adicionar;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,7 +26,6 @@ public class Dados2 extends JFrame {
 	private JTextField textPosicao;
 	private Adicionar ad = new Adicionar();
 	public String lb = Adicionar.getLb1();
-	private boolean Vrf=false;
 	/**
 	 * Launch the application.
 	 */
@@ -51,8 +48,6 @@ public class Dados2 extends JFrame {
 	 * Create the frame.
 	 */
 	public Dados2() {
-		int vetor[] = new int[12];
-		
 		setTitle("Informa\u00E7\u00F5es");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 365, 148);
@@ -94,9 +89,9 @@ public class Dados2 extends JFrame {
 
 						if((abates >0) && (quedas >0)) {
 							if(quedas <13) {
-								Vetores.setVrf2(Vetores.vetExiste2(quedas));
-								if(tabela.Vetores.getVrf2()==false) {
-									Vetores.vetAdd2(quedas);
+								Dadoss.Vetores.setVrf2(Dadoss.Vetores.vetExiste2(quedas));
+								if(Dadoss.Vetores.getVrf2()==false) {
+									Dadoss.Vetores.vetAdd2(quedas);
 									ad.setAbates(abates);
 									ad.setQueda1(quedas);
 									dispose();	

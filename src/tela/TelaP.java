@@ -5,8 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import tabela.Adicionar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -20,6 +18,8 @@ import java.awt.event.KeyEvent;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import Repositorio.Adicionar;
 
 
 
@@ -122,9 +122,9 @@ public class TelaP extends JFrame {
 		
 
 		
-		for(int i = 0; i < tabela.Adicionar.tabela.size(); i++) {
+		for(int i = 0; i < Repositorio.Adicionar.tabela.size(); i++) {
 			DefaultTableModel model = (DefaultTableModel)table.getModel();
-			model.addRow(new Object [] {tabela.Adicionar.tabela.get(i).getID(),Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal(),0});
+			model.addRow(new Object [] {Repositorio.Adicionar.tabela.get(i).getID(),Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal(),0});
 			scrollPane.setViewportView(table);
 		}
 		scrollPane.setViewportView(table);
@@ -153,22 +153,22 @@ public class TelaP extends JFrame {
 				try{
 					String time = textTag.getText();
 					time = time.toUpperCase();
-					int quedas=tabela.Adicionar.getNumber();
+					int quedas=Repositorio.Adicionar.getNumber();
 					if(textTag.getText().equals("")){
 						JOptionPane.showMessageDialog(null,"A Tag do time não pode ficar em branco");
 					}
 					
 					else {
-						boolean busca = tabela.Adicionar.Verificar(time);
+						boolean busca = Repositorio.Adicionar.Verificar(time);
 						if(busca!=true) {
 							if(quedas>0&&quedas<4) {
 								
 								
-								tabela.Adicionar.Setar(time);
+								Repositorio.Adicionar.Setar(time);
 								ad.setIndex(quedas);
 								
 								if(quedas==1) {
-									tabela.Adicionar.setLb("Ùnica Queda");
+									Repositorio.Adicionar.setLb("Ùnica Queda");
 									Dados exibir = new Dados();
 									exibir.setVisible(true);
 									exibir.setResizable(false);
@@ -176,8 +176,8 @@ public class TelaP extends JFrame {
 									dispose();
 								}
 								else if(quedas==2) {
-									tabela.Adicionar.setLb1("Primeira Queda");
-									tabela.Adicionar.setLb("Segunda Queda");
+									Repositorio.Adicionar.setLb1("Primeira Queda");
+									Repositorio.Adicionar.setLb("Segunda Queda");
 									Dados exibir = new Dados();
 									exibir.setVisible(true);
 									exibir.setLocationRelativeTo(null);
@@ -190,9 +190,9 @@ public class TelaP extends JFrame {
 									dispose();
 								}
 								else {
-									tabela.Adicionar.setLb2("Primeira Queda");
-									tabela.Adicionar.setLb1("Segunda Queda");
-									tabela.Adicionar.setLb("Terceira Queda");
+									Repositorio.Adicionar.setLb2("Primeira Queda");
+									Repositorio.Adicionar.setLb1("Segunda Queda");
+									Repositorio.Adicionar.setLb("Terceira Queda");
 									Dados exibir = new Dados();
 									exibir.setVisible(true);
 									exibir.setResizable(false);

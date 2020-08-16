@@ -1,6 +1,9 @@
-package tabela;
+package Repositorio;
 
 import java.util.ArrayList;
+
+import Dadoss.AttLista;
+import Dadoss.Tabela;
 
 
 public class Adicionar {
@@ -16,20 +19,18 @@ public class Adicionar {
 	private static String lb2;
 	private static int cont;
 
-	
-	
-
-
-
-
 	public static ArrayList <Tabela> tabela = new ArrayList<>();
-	
 	public static ArrayList <AttLista> att = new ArrayList<>();
 	
+	
+	public static void atzTab(ArrayList <Tabela> att) {
+		
+	}
+	//Adiciona na lista de atualização
 	public static void AddTb(AttLista  Adiconar){
 		att.add(Adiconar);	
 	}
-	
+	//Adiciona na lista do tipo Tabela
 	public static void Add(Tabela Adicionar){
 		tabela.add(Adicionar);	
 	}
@@ -37,7 +38,7 @@ public class Adicionar {
 	public static void Setar(String s) {
 		setar=s;
 	}
-	
+	//Verifica se só contem números
     public static boolean soConterNumeros(String valores) {
         if(valores == null)
             return false;
@@ -47,14 +48,7 @@ public class Adicionar {
         return true;
          
     }
-    public static boolean BuscarPS(int x) {
-    	for(int i=0;i<Adicionar.tabela.size();i++) {
-    		if(Adicionar.tabela.get(i).getQueda()==x||Adicionar.tabela.get(i).getQueda1()==x||Adicionar.tabela.get(i).getQueda2()==x) {
-    			return true;
-    		}
-    	}
-    	return false;
-    }
+    //Busca o endereço na lista do tipo tabela
     public static boolean buscar(int ID){
         boolean achei=false;
         
@@ -66,7 +60,7 @@ public class Adicionar {
         }
     	return achei; 
     }
-	
+	//Verifica se já exite o time a ser cadastrado
 	public static boolean Verificar(String produto){
 		boolean achei=false;
 		for(int i=0; i < tabela.size(); i++) {
@@ -78,9 +72,8 @@ public class Adicionar {
 		return achei;
 	}
 	
-	public static void atzTab(ArrayList <Tabela> att) {
-		
-	}
+
+	//Verificar se exite algum empate na tabela
 	public static boolean Empate(int x, int id) {
 		boolean r=false;
 		for(int i=0;i<Adicionar.tabela.size();i++) {
@@ -94,7 +87,7 @@ public class Adicionar {
 		}
 		return r;
 	}
-	
+	//Retorna a pontução de acordo com a colocação 
 	public static int Posicao(int posicao) {
 		if(posicao==1) {
 			posicao=20;
@@ -134,7 +127,7 @@ public class Adicionar {
 		
 		return posicao;
 	}
-	
+	/*------------------------Getters_and_Setters----------------------------------------*/
 	public String getNome() {
 		return nome;
 	}
@@ -226,9 +219,4 @@ public class Adicionar {
 	public static void setCont(int cont) {
 		Adicionar.cont = Adicionar.cont +cont;
 	}
-
-
-	
-	
-
 }

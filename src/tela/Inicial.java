@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import tabela.Adicionar;
+import Repositorio.Adicionar;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -74,11 +74,11 @@ public class Inicial extends JFrame {
 				else {
 					String valor1 = textQuedas.getText();
 					if(Adicionar.soConterNumeros(valor1)) {
-						if(tabela.Adicionar.soConterNumeros(valor1)) {
+						if(Repositorio.Adicionar.soConterNumeros(valor1)) {
 							int valor2 = Integer.parseInt(valor1);
 							if(valor2 >0) {
 								if(valor2<4) {
-									tabela.Adicionar.setNumber(valor2);
+									Repositorio.Adicionar.setNumber(valor2);
 									TelaP exibir = new TelaP();
 									exibir.setVisible(true);
 									exibir.setLocationRelativeTo(null);

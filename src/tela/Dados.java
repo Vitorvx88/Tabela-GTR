@@ -6,17 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
-import tabela.Adicionar;
-import tabela.Tabela;
-import tabela.Vetores;
+import Dadoss.Tabela;
+import Repositorio.Adicionar;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.Collections;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
@@ -30,8 +27,6 @@ public class Dados extends JFrame {
 	private JPanel contentPane;
 
 	private int total=0;
-	private String vetor[] = new String[12];
-	private int pos[] = new int[12];
 	private JTextField textAb;
 	private JTextField textPs;
 	public String lb = Adicionar.getLb();
@@ -100,16 +95,16 @@ public class Dados extends JFrame {
 							int absa =Integer.parseInt(textAb.getText());
 							if((abates >0) && (quedas >0)) {
 								if(quedas <13) {
-									Vetores.setVrf(Vetores.vetExiste(quedas));
-									if(tabela.Vetores.getVrf()==false) {
-										Vetores.vetAdd(quedas);
+									Dadoss.Vetores.setVrf(Dadoss.Vetores.vetExiste(quedas));
+									if(Dadoss.Vetores.getVrf()==false) {
+										Dadoss.Vetores.vetAdd(quedas);
 										//vetor[]=quedas;
 
 										abates = (abates + ad.getAbates())*2;
 										absa = (absa + ad.getAbates());
-										total = total + tabela.Adicionar.Posicao(ad.getQueda1())+tabela.Adicionar.Posicao(ad.getQueda2())+tabela.Adicionar.Posicao(quedas);
+										total = total + Repositorio.Adicionar.Posicao(ad.getQueda1())+Repositorio.Adicionar.Posicao(ad.getQueda2())+Repositorio.Adicionar.Posicao(quedas);
 										total = total + abates;
-										Tabela a1 = new Tabela(tabela.Adicionar.tabela.size(),ad.getSetar(),ad.getIndex(),absa,total,ad.getQueda1(),ad.getQueda2(),quedas);
+										Tabela a1 = new Tabela(Repositorio.Adicionar.tabela.size(),ad.getSetar(),ad.getIndex(),absa,total);
 										Adicionar.Add(a1);
 										JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
 

@@ -1,4 +1,4 @@
-package tabela;
+package Dadoss;
 
 public class Vetores {
 	private static boolean Vrf=false;
@@ -7,6 +7,7 @@ public class Vetores {
 	private static int vet2[]=new int[12];
 	private static boolean Vrf3=false;
 	private static int vet3[]=new int[12];
+	
 	/*---------------------Primeiro_Vetor------------------------*/
 	public static boolean vetExiste(int x) {
 		for(int i=0; i< vet.length; i++) {

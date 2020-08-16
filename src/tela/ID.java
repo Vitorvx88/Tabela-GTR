@@ -5,9 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import tabela.Adicionar;
-import tabela.AttLista;
-import tabela.Tabela;
+
+import Dadoss.AttLista;
+import Dadoss.Tabela;
+import Repositorio.Adicionar;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -76,25 +77,25 @@ public class ID extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					String IDaux=textID.getText();
-					boolean Number=tabela.Adicionar.soConterNumeros(IDaux);
+					boolean Number=Repositorio.Adicionar.soConterNumeros(IDaux);
 					if(IDaux.equals("")) {
 						JOptionPane.showMessageDialog(null, "O campo ID não pode estar em branco!");
 					}
 					else {
 						if(Number) {
 							int ID = Integer.parseInt(IDaux);
-							boolean VerficID=tabela.Adicionar.buscar(ID);
+							boolean VerficID=Repositorio.Adicionar.buscar(ID);
 							if(VerficID) {
 								Adicionar.tabela.remove(ID);
 			
 								for(int i=0; i<Adicionar.tabela.size(); i++) {
-									AttLista a1 = new AttLista (Adicionar.att.size()-1,Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getQuedas(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal(),Adicionar.tabela.get(i).getQueda(),Adicionar.tabela.get(i).getQueda1(),Adicionar.tabela.get(i).getQueda2());
+									AttLista a1 = new AttLista (Adicionar.att.size()-1,Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getQuedas(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal());
 									Adicionar.AddTb(a1);
 								}
 								Adicionar.tabela.removeAll(Adicionar.tabela);
 								
 								for(int i=0; i< Adicionar.att.size(); i++) {
-									Tabela a1 = new Tabela(Adicionar.tabela.size(),Adicionar.att.get(i).getTime(),Adicionar.att.get(i).getQuedas(),Adicionar.att.get(i).getAbates(),Adicionar.att.get(i).getTotal(),Adicionar.att.get(i).getQueda(),Adicionar.att.get(i).getQueda1(),Adicionar.att.get(i).getQueda2());
+									Tabela a1 = new Tabela(Adicionar.tabela.size(),Adicionar.att.get(i).getTime(),Adicionar.att.get(i).getQuedas(),Adicionar.att.get(i).getAbates(),Adicionar.att.get(i).getTotal());
 									Adicionar.Add(a1);
 								}
 								Adicionar.att.removeAll(Adicionar.att);

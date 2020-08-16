@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import tabela.Adicionar;
+import Repositorio.Adicionar;
 
 import java.awt.event.ActionListener;
 import java.util.Collections;
@@ -80,8 +80,8 @@ public class TabelaGerada extends JFrame {
 		table.getColumnModel().getColumn(1).setPreferredWidth(85);
 		table.getColumnModel().getColumn(2).setPreferredWidth(61);
 		scrollPane.setViewportView(table);
-		Collections.sort(tabela.Adicionar.tabela);
-		for(int i = 0; i < tabela.Adicionar.tabela.size(); i++) {
+		Collections.sort(Repositorio.Adicionar.tabela);
+		for(int i = 0; i < Repositorio.Adicionar.tabela.size(); i++) {
 			
 			if(Adicionar.Empate(Adicionar.tabela.get(i).getTotal(),Adicionar.tabela.get(i).getID())) {
 				DefaultTableModel model = (DefaultTableModel)table.getModel();
