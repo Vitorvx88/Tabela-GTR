@@ -14,6 +14,14 @@ public class Adicionar {
 	private static String lb;
 	private static String lb1;
 	private static String lb2;
+	private static int cont;
+
+	
+	
+
+
+
+
 	public static ArrayList <Tabela> tabela = new ArrayList<>();
 	
 	public static ArrayList <AttLista> att = new ArrayList<>();
@@ -22,8 +30,6 @@ public class Adicionar {
 		att.add(Adiconar);	
 	}
 	
-	
-	
 	public static void Add(Tabela Adicionar){
 		tabela.add(Adicionar);	
 	}
@@ -31,6 +37,7 @@ public class Adicionar {
 	public static void Setar(String s) {
 		setar=s;
 	}
+	
     public static boolean soConterNumeros(String valores) {
         if(valores == null)
             return false;
@@ -39,6 +46,14 @@ public class Adicionar {
                 return false;
         return true;
          
+    }
+    public static boolean BuscarPS(int x) {
+    	for(int i=0;i<Adicionar.tabela.size();i++) {
+    		if(Adicionar.tabela.get(i).getQueda()==x||Adicionar.tabela.get(i).getQueda1()==x||Adicionar.tabela.get(i).getQueda2()==x) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
     public static boolean buscar(int ID){
         boolean achei=false;
@@ -205,7 +220,15 @@ public class Adicionar {
 	public static void setNumber(int number) {
 		Adicionar.number = number;
 	}
+	public static int getCont() {
+		return cont;
+	}
+	public static void setCont(int cont) {
+		Adicionar.cont = Adicionar.cont +cont;
+	}
 
+
+	
 	
 
 }

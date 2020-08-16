@@ -88,13 +88,13 @@ public class ID extends JFrame {
 								Adicionar.tabela.remove(ID);
 			
 								for(int i=0; i<Adicionar.tabela.size(); i++) {
-									AttLista a1 = new AttLista (Adicionar.att.size()-1,Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getQuedas(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal());
+									AttLista a1 = new AttLista (Adicionar.att.size()-1,Adicionar.tabela.get(i).getTime(),Adicionar.tabela.get(i).getQuedas(),Adicionar.tabela.get(i).getAbates(),Adicionar.tabela.get(i).getTotal(),Adicionar.tabela.get(i).getQueda(),Adicionar.tabela.get(i).getQueda1(),Adicionar.tabela.get(i).getQueda2());
 									Adicionar.AddTb(a1);
 								}
 								Adicionar.tabela.removeAll(Adicionar.tabela);
 								
 								for(int i=0; i< Adicionar.att.size(); i++) {
-									Tabela a1 = new Tabela(Adicionar.tabela.size(),Adicionar.att.get(i).getTime(),Adicionar.att.get(i).getQuedas(),Adicionar.att.get(i).getAbates(),Adicionar.att.get(i).getTotal());
+									Tabela a1 = new Tabela(Adicionar.tabela.size(),Adicionar.att.get(i).getTime(),Adicionar.att.get(i).getQuedas(),Adicionar.att.get(i).getAbates(),Adicionar.att.get(i).getTotal(),Adicionar.att.get(i).getQueda(),Adicionar.att.get(i).getQueda1(),Adicionar.att.get(i).getQueda2());
 									Adicionar.Add(a1);
 								}
 								Adicionar.att.removeAll(Adicionar.att);

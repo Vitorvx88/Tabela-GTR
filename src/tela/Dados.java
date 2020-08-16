@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import tabela.Adicionar;
 import tabela.Tabela;
+import tabela.Vetores;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,9 +30,12 @@ public class Dados extends JFrame {
 	private JPanel contentPane;
 
 	private int total=0;
+	private String vetor[] = new String[12];
+	private int pos[] = new int[12];
 	private JTextField textAb;
 	private JTextField textPs;
 	public String lb = Adicionar.getLb();
+	
 
 
 	/**
@@ -56,7 +60,8 @@ public class Dados extends JFrame {
 	 * Create the frame.
 	 */
 	public Dados() {
-	
+		
+		
 		
 		TelaP exibir1 = new TelaP();
 		exibir1.setVisible(true);
@@ -95,24 +100,36 @@ public class Dados extends JFrame {
 							int absa =Integer.parseInt(textAb.getText());
 							if((abates >0) && (quedas >0)) {
 								if(quedas <13) {
-									abates = (abates + ad.getAbates())*2;
-									absa = (absa + ad.getAbates());
-									total = total + tabela.Adicionar.Posicao(ad.getQueda1())+tabela.Adicionar.Posicao(ad.getQueda2())+tabela.Adicionar.Posicao(quedas);
-									total = total + abates;
-									Tabela a1 = new Tabela(tabela.Adicionar.tabela.size(),ad.getSetar(),ad.getIndex(),absa,total);
-									Adicionar.Add(a1);
-									JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
-									ad.setAbates2(0);
-									ad.setQueda1(0);
-									ad.setQueda2(0);
+									Vetores.setVrf(Vetores.vetExiste(quedas));
+									if(tabela.Vetores.getVrf()==false) {
+										Vetores.vetAdd(quedas);
+										//vetor[]=quedas;
+
+										abates = (abates + ad.getAbates())*2;
+										absa = (absa + ad.getAbates());
+										total = total + tabela.Adicionar.Posicao(ad.getQueda1())+tabela.Adicionar.Posicao(ad.getQueda2())+tabela.Adicionar.Posicao(quedas);
+										total = total + abates;
+										Tabela a1 = new Tabela(tabela.Adicionar.tabela.size(),ad.getSetar(),ad.getIndex(),absa,total,ad.getQueda1(),ad.getQueda2(),quedas);
+										Adicionar.Add(a1);
+										JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso!");
+
+										ad.setAbates2(0);
+										ad.setQueda1(0);
+										ad.setQueda2(0);
+										
+										TelaP exibir = new TelaP();
+										exibir.setVisible(true);
+										exibir.setLocationRelativeTo(null);
+										exibir.setResizable(false);
+										dispose();
+										exibir1.setVisible(false);
+										dispose();	
+									}
+							
+									else
+										JOptionPane.showMessageDialog(null, "Já exite um time nesta posição");
 									
-									TelaP exibir = new TelaP();
-									exibir.setVisible(true);
-									exibir.setLocationRelativeTo(null);
-									exibir.setResizable(false);
-									dispose();
-									exibir1.setVisible(false);
-									dispose();
+									
 								}
 								else
 									JOptionPane.showMessageDialog(null, "A posição não pode ser mair que 12!");

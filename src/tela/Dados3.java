@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import tabela.Adicionar;
+import tabela.Vetores;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -26,6 +28,7 @@ public class Dados3 extends JFrame {
 	private JTextField textPosicao;
 	private Adicionar ad = new Adicionar();
 	public String lb = Adicionar.getLb2();
+	private boolean Vrf=false;
 	/**
 	 * Launch the application.
 	 */
@@ -48,7 +51,8 @@ public class Dados3 extends JFrame {
 	 * Create the frame.
 	 */
 	public Dados3() {
-	
+		int vetor[] = new int[12];
+		
 		setTitle("Informa\u00E7\u00F5es");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 365, 148);
@@ -89,9 +93,16 @@ public class Dados3 extends JFrame {
 						int quedas=(Integer.parseInt(valor2));
 						if((abates >0) && (quedas >0)) {
 							if(quedas<13) {
-								ad.setAbates(abates);
-								ad.setQueda2(quedas);
-								dispose();
+								Vetores.setVrf3(Vetores.vetExiste3(quedas));
+								if(tabela.Vetores.getVrf3()==false) {
+									Vetores.vetAdd3(quedas);
+									ad.setAbates(abates);
+									ad.setQueda2(quedas);
+									dispose();
+								}
+								else
+									JOptionPane.showMessageDialog(null, "Já exite um time nesta posição");
+
 							}
 							else
 								JOptionPane.showMessageDialog(null, "A posição não pode ser mair que 12!");
